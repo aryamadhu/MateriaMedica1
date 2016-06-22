@@ -1,0 +1,110 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SQLiteWp8.Views.AddConatct"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,0,0,3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <phone:Pivot HorizontalAlignment="Left" Height="746" Margin="3,18,0,0" Grid.Row="1" Title="" VerticalAlignment="Top" Width="475">
+            <phone:PivotItem CacheMode="{x:Null}" Header="Remedies" Margin="-4,28,-1,-42">
+                <Grid Margin="7,-16,-7,-4">
+                    <ListBox BorderBrush="#FF141EE4" BorderThickness="2" MaxHeight="590" Background="Black" x:Name="listBoxobj1" Loaded="ListBox_Loaded" SelectionChanged="listBoxobj_SelectionChanged" Margin="0,-16,11,3">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Background="Gray" Width="480">
+                                    <Border BorderBrush="White" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" x:Name="NameTxt" TextWrapping="Wrap" Text="{Binding Name}" FontSize="22" Foreground="White"/>
+
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+            </phone:PivotItem>
+
+            <phone:PivotItem CacheMode="{x:Null}" Header="Search" Margin="8,28,-1,-34">
+                <Grid Width="462" Margin="0,12,0,113">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="239*"/>
+                        <RowDefinition Height="242*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox BorderBrush="#FF141EE4" Height="auto" BorderThickness="2" MaxHeight="580" Background="Black" x:Name="listBoxobj2" Loaded="ListBox2_Loaded"  SelectionChanged="listBoxobj2_SelectionChanged"  Margin="-9,157,0,-126" Grid.RowSpan="2">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Background="Gray" Width="480">
+                                    <Border BorderBrush="White" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" x:Name="NameTxt" TextWrapping="Wrap" Text="{Binding Name}" FontSize="22" Foreground="White"/>
+
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" x:Name="XatMachTxtBlk" Text="ExactMatch" VerticalAlignment="Top" Height="32" RenderTransformOrigin="0.545,0.195" Width="115" Margin="0,10,0,0" CharacterSpacing="15"/>
+                    <Slider HorizontalAlignment="Left" Margin="378,0,0,0" VerticalAlignment="Top" Height="81" Width="68" ValueChanged="SliderValueChanged"/>
+                    <toolkit:PhoneTextBox x:Name="SrchTxtBx" Hint="Search" MaxLength="10" ActionIcon="Icon/Search.png" Margin="-23,0,125,106" Height="77" VerticalAlignment="Bottom" />
+                    <Button x:Name="SerchBtn" Content="Search" HorizontalAlignment="Left" Margin="340,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.011,0.296" Click="SerchBtn_Click"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem CacheMode="{x:Null}" Header="Notes" Margin="-1,28,-4,-211">
+                <Grid Margin="5,3,-37,196">
+                    <Button x:Name="note" Content="AddNote" HorizontalAlignment="Left" VerticalAlignment="Top" Width="147" Click="AddNote_Click" Margin="66,6,0,0"/>
+                    <toolkit:PhoneTextBox  x:Name="TitleTxtBx" Hint="title..." Margin="-15,104,15,425"/>
+                    <toolkit:PhoneTextBox x:Name="TextTxtBx" Hint="text...." Margin="-15,185,15,-11"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem CacheMode="{x:Null}" Header="FAQ" Margin="1,28,-4,0">
+                <Grid Height="595">
+                    <phone:WebBrowser x:Name="WebView2" HorizontalAlignment="Left" IsScriptEnabled="True" Margin="3,-7,0,-4" VerticalAlignment="Top" Height="606" Width="463" Loaded="WebBrowser_Loaded" LoadCompleted="WebBrowser_LoadCompleted"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem CacheMode="{x:Null}" Header="INFO">
+                <Grid  Height="621" Width="463">
+                    <Image Source="Info.png"></Image>
+                </Grid>
+            </phone:PivotItem>
+
+        </phone:Pivot>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
+
+
+
+
